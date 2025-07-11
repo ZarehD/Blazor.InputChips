@@ -126,37 +126,37 @@ Override one of the available CSS variables by assigning it a new value (in your
 
 ```css
 :root {
-	--bic-container-border-color               : gray;
-	--bic-container-border-width               : 1px;
-	--bic-container-border-radius              : 0.25rem;
-	--bic-chipslist-padding-x                  : 0.125rem;
-	--bic-chipslist-padding-y                  : 0.125rem;
-	--bic-chipitem-bgcolor                     : silver;
-	--bic-chipitem-color                       : black;
-	--bic-chipitem-margin                      : 0.25rem;
-	--bic-chipitem-padding-x                   : 0.25rem;
-	--bic-chipitem-padding-y                   : 0;
-	--bic-chipitem-height                      : 1.8rem;
-	--bic-chipitem-line-height                 : 1.5;
-	--bic-chipitem-border-radius               : 1.25rem;
-	--bic-chip-margin-x                        : 0.25rem;
-	--bic-chip-margin-y                        : 0;
-	--bic-chip-close-i-border-radius           : 50%;
-	--bic-chip-close-i-margin-left             : 1px;
-	--bic-chip-close-i-margin-top              : 1px;
-	--bic-chip-close-i-padding                 : 0 .25rem;
-	--bic-chip-close-i-opacity                 : .75;
-	--bic-chip-close-i-hover-bgcolor           : gray;
-	--bic-chip-close-i-hover-color             : white;
-	--bic-chip-close-i-hover-opacity           : 1;
-	--bic-chip-input-item-margin               : 0.25rem;
-	--bic-chip-input-outline                   : 1px solid lightblue;
-	--bic-error-container-ul-list-style        : none;
-	--bic-error-container-ul-padding-left      : 0;
-	--bic-error-container-ul-margin-bottom     : 1rem;
-	--bic-error-item-color                     : red;
-	--bic-error-item-fontsize                  : 80%;
-	--bic-error-item-margin-top                : 0.25rem;
+	--bic-container-border-color
+	--bic-container-border-width
+	--bic-container-border-radius
+	--bic-chipslist-padding-x
+	--bic-chipslist-padding-y
+	--bic-chipitem-bgcolor
+	--bic-chipitem-color
+	--bic-chipitem-margin
+	--bic-chipitem-padding-x
+	--bic-chipitem-padding-y
+	--bic-chipitem-height
+	--bic-chipitem-line-height
+	--bic-chipitem-border-radius
+	--bic-chip-margin-x
+	--bic-chip-margin-y
+	--bic-chip-close-i-border-radius
+	--bic-chip-close-i-margin-left
+	--bic-chip-close-i-margin-top
+	--bic-chip-close-i-padding
+	--bic-chip-close-i-opacity
+	--bic-chip-close-i-hover-bgcolor
+	--bic-chip-close-i-hover-color
+	--bic-chip-close-i-hover-opacity
+	--bic-chip-input-item-margin
+	--bic-chip-input-outline
+	--bic-error-container-ul-list-style
+	--bic-error-container-ul-padding-left
+	--bic-error-container-ul-margin-bottom
+	--bic-error-item-color
+	--bic-error-item-fontsize
+	--bic-error-item-margin-top
 }
 ```
 
