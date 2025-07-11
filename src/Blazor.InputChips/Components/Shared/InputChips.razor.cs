@@ -96,6 +96,22 @@ public partial class InputChips : ComponentBase
 	[Parameter]
 	public bool ApplyInputOutlineCss { get; set; }
 
+	/// <summary>
+	///		Specifies whether to render an HTML unordered list 
+	///		for displaying validation errors.
+	/// </summary>
+	/// <remarks>
+	///		When <c>False</c> (default), a container &lt;div&gt; 
+	///		is rendered, and a &lt;div&gt; for each error.
+	///		
+	///		When <c>True</c>, a &lt;ul&gt; is rendered as a container. 
+	///		An &lt;li&gt; is then rendered for each error.
+	///		
+	///		If <see cref="ValidationErrorTemplate"/> is defined,
+	///		it will be rendered for each error item within the container
+	/// </remarks>
+	[Parameter]
+	public bool UseUnorderedListForErrors { get; set; }
 
 	/// <summary>
 	///		Specifies the font icon CSS class to use for the delete icon of a chip.

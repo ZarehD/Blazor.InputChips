@@ -33,6 +33,10 @@
 	//--bic-chip-input-border-color: revert;
 	--bic-chip-input-outline: 1px solid lightblue;
 	//-
+	--bic-error-container-ul-list-style: none;
+	--bic-error-container-ul-padding-left: 0;
+	--bic-error-container-ul-margin-bottom: 1rem;
+	//-
 	--bic-error-item-color: red;
 	--bic-error-item-fontsize: 80%;
 	--bic-error-item-margin-top: .25rem;
@@ -110,12 +114,27 @@
 		}
 	}
 
-	.bic-errors-container {
-		.bic-error-item {
+	div.bic-errors-container {
+		width: 100%;
+
+		div.bic-error-item {
 			color: var(--bic-error-item-color);
 			font-size: var(--bic-error-item-fontsize);
 			margin-top: var(--bic-error-item-margin-top);
 			width: 100%;
+		}
+	}
+
+	ul.bic-errors-container {
+		width: 100%;
+		list-style-type: var(--bic-error-container-ul-list-style);
+		padding-left: var(--bic-error-container-ul-padding-left);
+		margin-bottom: var(--bic-error-container-ul-margin-bottom);
+
+		li.bic-error-item {
+			color: var(--bic-error-item-color);
+			font-size: var(--bic-error-item-fontsize);
+			margin-top: var(--bic-error-item-margin-top);
 		}
 	}
 }
