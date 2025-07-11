@@ -186,7 +186,7 @@ li.bic-error-item            # validation error li item
 <br/>
 
 ## License
-[Apache 2.0](https://github.com/ZarehD/RazorViewComponent/blob/master/LICENSE)
+[Apache 2.0](https://github.com/ZarehD/Blazor.InputChips/blob/main/LICENSE)
 
 
 <br/>
