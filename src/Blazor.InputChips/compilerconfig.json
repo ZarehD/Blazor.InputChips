@@ -1,0 +1,6 @@
+﻿[
+	{
+		"outputFile": "wwwroot/Blazor.InputChips.styles.css",
+		"inputFile": "Components/Shared/InputChips.razor.scss"
+	}
+]

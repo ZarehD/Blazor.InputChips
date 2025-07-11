@@ -1,0 +1,121 @@
+﻿:root {
+	--bic-container-border-color: gray;
+	--bic-container-border-width: 1px;
+	--bic-container-border-radius: .25rem;
+	//-
+	--bic-chipslist-padding-x: 0.125rem;
+	--bic-chipslist-padding-y: 0.125rem;
+	//-
+	--bic-chipitem-bgcolor: silver;
+	--bic-chipitem-color: black;
+	--bic-chipitem-margin: 0.25rem;
+	--bic-chipitem-padding-x: 0.25rem;
+	--bic-chipitem-padding-y: 0;
+	--bic-chipitem-height: 1.8rem;
+	--bic-chipitem-line-height: 1.5;
+	--bic-chipitem-border-radius: 1.25rem;
+	//-
+	--bic-chip-margin-x: 0.25rem;
+	--bic-chip-margin-y: 0;
+	//-
+	--bic-chip-close-i-border-radius: 50%;
+	--bic-chip-close-i-margin-left: 1px;
+	--bic-chip-close-i-margin-top: 1px;
+	--bic-chip-close-i-padding: 0 .25rem;
+	--bic-chip-close-i-opacity: .75;
+	--bic-chip-close-i-hover-bgcolor: silver;
+	--bic-chip-close-i-hover-color: black;
+	--bic-chip-close-i-hover-opacity: 1;
+	//-
+	--bic-chip-input-item-margin: .25rem;
+	//-
+	//--bic-chip-input-border: inherit;
+	//--bic-chip-input-border-color: revert;
+	--bic-chip-input-outline: 1px solid lightblue;
+	//-
+	--bic-error-item-color: red;
+	--bic-error-item-fontsize: 80%;
+	--bic-error-item-margin-top: .25rem;
+}
+
+.bic-input-chips {
+	.bic-container {
+		display: flex;
+		flex-wrap: wrap;
+		border: var(--bic-container-border-width) solid var(--bic-container-border-color);
+		border-radius: var(--bic-container-border-radius);
+
+		.bic-chips-list {
+			display: inline-flex;
+			flex-wrap: wrap;
+			list-style: none;
+			width: 100%;
+			margin: 0;
+			padding: var(--bic-chipslist-padding-y) var(--bic-chipslist-padding-x);
+
+			.bic-chip-item {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: var(--bic-chipitem-bgcolor);
+				color: var(--bic-chipitem-color);
+				height: var(--bic-chipitem-height);
+				padding: var(--bic-chipitem-padding-y) var(--bic-chipitem-padding-x);
+				margin: var(--bic-chipitem-margin);
+				//margin-left: 0;
+				line-height: var(--bic-chipitem-line-height);
+				border-radius: var(--bic-chipitem-border-radius);
+
+				.bic-chip {
+					margin: var(--bic-chip-margin-y) var(--bic-chip-margin-x);
+				}
+
+				.bic-chip-close {
+					cursor: pointer;
+				}
+
+				img.bic-chip-close {
+					height: 16px;
+					width: 16px;
+				}
+
+				i.bic-chip-close {
+					border-radius: var(--bic-chip-close-i-border-radius);
+					margin-left: var(--bic-chip-close-i-margin-left);
+					margin-top: var(--bic-chip-close-i-margin-top);
+					padding: var(--bic-chip-close-i-padding);
+					opacity: var(--bic-chip-close-i-opacity);
+
+					&:hover {
+						background-color: var(--bic-chip-close-i-hover-bgcolor);
+						color: var(--bic-chip-close-i-hover-color);
+						opacity: var(--bic-chip-close-i-hover-opacity);
+					}
+				}
+			}
+
+			.bic-chip-input-item {
+				flex-grow: 1;
+				margin: var(--bic-chip-input-item-margin);
+
+				& > input.bic-chip-input {
+					border-radius: var(--bic-container-border-radius);
+					width: 100% !important;
+
+					&.bic-input-outline {
+						outline: var(--bic-chip-input-outline);
+					}
+				}
+			}
+		}
+	}
+
+	.bic-errors-container {
+		.bic-error-item {
+			color: var(--bic-error-item-color);
+			font-size: var(--bic-error-item-fontsize);
+			margin-top: var(--bic-error-item-margin-top);
+			width: 100%;
+		}
+	}
+}
