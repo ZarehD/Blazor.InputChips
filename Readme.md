@@ -49,7 +49,7 @@ Input control for editing a collection of chips (tag values).
 #### Binding Value & Instance ID
 Property | Type | Default | Description
 ---|---|---|---
-Chips | List<string> | new() | The collection of chip values to edit.<br/><br/>:bulb: <small>Supports binding (`@bind-Chips`).</small>
+Chips | List\<string\> | new() | The collection of chip values to edit.<br/><br/>:bulb: <small>Supports binding (`@bind-Chips`).</small>
 InstanceId | string | Guid.NewGuid() | A unique value identifying an isntance of the component.<br/><br/>:bulb: <small>Value is used in 'id' and 'name' attributes of elements.</small>
 
 #### Flags/Switches
@@ -90,7 +90,7 @@ ChipsChanged | EventCallback<List\<string\>> | Callback invoked when Chips colle
 OnCustomValidate | EventCallback\<ChipValidationArgs\> | Callback invoked to performing custom validation on a new chip value.
 
 > [!Important]
-> Your custom validation callback (assigned to the `OnCustomValidate` callback) is expected to add any validation errors it generates to the `ChipValidationArgs.ValidationErrors` collection.
+> Your custom validation callback (assigned to the `OnCustomValidate` property) is expected to add any validation errors it generates to the `ChipValidationArgs.ValidationErrors` collection.
 
 
 ### Child Content Templates
