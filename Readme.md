@@ -47,10 +47,10 @@ Input control for editing a collection of chips (tag values).
 ### Properties
 
 #### Binding Value & Instance ID
-Property | Type | Default | Description
----|---|---|---
-Chips | List\<string\> | new() | The collection of chip values to edit.<br/><br/>:bulb: <small>Supports binding (`@bind-Chips`).</small>
-InstanceId | string | Guid.NewGuid() | A unique value identifying an isntance of the component.<br/><br/>:bulb: <small>Value is used in 'id' and 'name' attributes of elements.</small>
+Property | Type | Description
+---|---|---
+Chips | List\<string\> | The collection of chip values to edit.<br/><br/>:bulb: <small>Supports binding (`@bind-Chips`).</small>
+InstanceId | string | A unique value identifying an isntance of the component.<br/><br/>:bulb: <small>Value is used in 'id' and 'name' attributes of elements.</small><br/>:bulb: <small>`Guid.NewGuid().ToString()` is used if no value assigned.</small>
 
 #### Flags/Switches
 Property | Type | Default | Description
