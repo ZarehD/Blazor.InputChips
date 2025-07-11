@@ -68,10 +68,10 @@ Property | Type | Default | Description
 ---|---|---|---
 AllowedChips | List\<string\>? | null | Whitelist collection of permitted chip/tag values.
 DeleteIconFontCss | string? | null | Specifies a CSS class used for the delete icon of a chip.<br/><br/>:bulb: <small>When a non-null value is specified for this property, an `<i class="bic-chip-close @DeleteIconFontCss">` element is rendered instead of `<img class="bic-chip-close" ... />`.</small>
-SubmitChipOnChar | char? | null | Specifies a character (e.g. [SPACE]) that, like an [ENTER] keypress, will submit the current value to be added to the `CharSubmitChip` collection.<br/><br/>:bulb:<small>Note that the [SPACE] character in the above example will not be a part of the submitted chip value.</small><br/><br/>:bulb:<small>Note also that the [ENTER] key will still submit a value regardless of this setting unless `DisableSubmitChipOnEnter` is `true`.</small>
 MinChipLen | int | 1 | The minimum permitted length of a chip value.
 MaxChipLen | int | int.MaxValue | The maximum permitted length of a chip value.
 MaxNumChips | int | int.MaxValue | Maximum number of chips allowed in the `Chips` collection.
+SubmitChipOnChar | char? | null | Specifies a character (e.g. [SPACE]) that, like an [ENTER] keypress, will submit the current value to be added to the `CharSubmitChip` collection.<br/><br/>:bulb:<small>Note that the [SPACE] character in the above example will not be a part of the submitted chip value.</small><br/><br/>:bulb:<small>Note also that the [ENTER] key will still submit a value regardless of this setting unless `DisableSubmitChipOnEnter` is `true`.</small>
 
 #### Error Messages
 Property | Type | Description
