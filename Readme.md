@@ -1,7 +1,7 @@
 ![Platform Support: ASP.NET Core](https://img.shields.io/static/v1?label=ASP.NET+Core&message=8.0%20-%209.0&color=blue&style=for-the-badge)
 ![License: Apache 2](https://img.shields.io/badge/license-Apache%202.0-blue?style=for-the-badge)
 
-# <img src="projecticon.png" alt="project icon" width=40 /> Blazor InputChips Component
+# <img src="https://github.com/ZarehD/Blazor.InputChips/blob/main/ProjectIcon.png" alt="project icon" width=40 /> Blazor InputChips Component
 
 Input control for editing a collection of chips (tag values).
 
