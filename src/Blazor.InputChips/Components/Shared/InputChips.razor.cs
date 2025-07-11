@@ -130,12 +130,6 @@ public partial class InputChips : ComponentBase
 	public List<string>? AllowedChips { get; set; }
 
 	/// <summary>
-	///		Maximum number of chips allowed in the <see cref="Chips"/> collection.
-	/// </summary>
-	[Parameter]
-	public int MaxNumChips { get; set; } = int.MaxValue;
-
-	/// <summary>
 	///		The minimum permitted length of a chip value.
 	/// </summary>
 	[Parameter]
@@ -147,6 +141,12 @@ public partial class InputChips : ComponentBase
 	[Parameter]
 	public int MaxChipLen { get; set; } = int.MaxValue;
 
+	/// <summary>
+	///		Maximum number of chips allowed in the <see cref="Chips"/> collection.
+	/// </summary>
+	[Parameter]
+	public int MaxNumChips { get; set; } = int.MaxValue;
+
 
 	/// <summary>
 	///		The error message to use when the chip/tag value 
@@ -157,21 +157,12 @@ public partial class InputChips : ComponentBase
 		= "Specified value not in list of allowed chip values.";
 
 	/// <summary>
-	///		The error message to use when the number of chips 
-	///		in the <see cref="Chips"/> collection exceeds the value 
-	///		specified in <see cref="MaxNumChips"/>.
-	/// </summary>
-	[Parameter]
-	public string MaxNumChipsErrorMessage { get; set; }
-		= "Adding this value will exceed the max number of chips allowed.";
-
-	/// <summary>
 	///		The error message to use when the length of a chip value 
 	///		is less than the value specified in <see cref="MinChipLen"/>.
 	/// </summary>
 	[Parameter]
 	public string MinChipLenErrorMessage { get; set; }
-		= "Specified value is shorter than the min length allowed.";
+		= "Specified chip value is shorter than the min length allowed.";
 
 	/// <summary>
 	///		The error message to use when the length of a chip value 
@@ -179,7 +170,16 @@ public partial class InputChips : ComponentBase
 	/// </summary>
 	[Parameter]
 	public string MaxChipLenErrorMessage { get; set; }
-		= "Specified value exceeds the max length allowed.";
+		= "Specified chip value exceeds the max length allowed.";
+
+	/// <summary>
+	///		The error message to use when the number of chips 
+	///		in the <see cref="Chips"/> collection exceeds the value 
+	///		specified in <see cref="MaxNumChips"/>.
+	/// </summary>
+	[Parameter]
+	public string MaxNumChipsErrorMessage { get; set; }
+		= "Adding this value will exceed the max number of chips allowed.";
 
 
 	/// <summary>
