@@ -277,6 +277,8 @@ public partial class InputChips : ComponentBase
 
 	private void OnKeyUp(KeyboardEventArgs args)
 	{
+		validationErrors.Clear();
+
 		if (this.EnableBackspaceRemove &&
 			args.Key.IsBackspace() &&
 			(!this.ReadOnly || this.AllowDeleteWhenReadOnly) &&
