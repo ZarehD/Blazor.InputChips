@@ -50,7 +50,7 @@ Input control for editing a collection of chips (tag values).
 Property | Type | Description
 ---|---|---
 Chips | List\<string\> | The collection of chip values to edit.<br/><br/>:bulb: <small>Supports binding (`@bind-Chips`).</small>
-InstanceId | string | A unique value identifying an isntance of the component.<br/><br/>:bulb: <small>Value is used in 'id' and 'name' attributes of elements.</small><br/>:bulb: <small>`Guid.NewGuid().ToString()` is used if no value assigned.</small>
+InstanceId | string | A unique value identifying an instance of the component.<br/><br/>:bulb: <small>Value is used in 'id' and 'name' attributes of elements.</small><br/>:bulb: <small>`Guid.NewGuid().ToString()` is used if no value assigned.</small>
 
 #### Flags/Switches
 Property | Type | Default | Description
