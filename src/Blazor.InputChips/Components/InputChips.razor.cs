@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
 
-namespace Blazor.InputChips.Components.Shared;
+namespace Blazor.InputChips.Components;
 
 public partial class InputChips : ComponentBase
 {

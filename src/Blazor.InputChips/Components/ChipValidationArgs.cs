@@ -1,4 +1,4 @@
-﻿namespace Blazor.InputChips.Components.Shared;
+﻿namespace Blazor.InputChips.Components;
 
 public sealed class ChipValidationArgs(
 	IReadOnlyCollection<string> allChips,

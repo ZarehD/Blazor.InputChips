@@ -63,4 +63,11 @@
 		<None Include="..\..\Readme.md" Link="Readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Content Update="wwwroot\Blazor.InputChips.styles.css">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
+
 </Project>
