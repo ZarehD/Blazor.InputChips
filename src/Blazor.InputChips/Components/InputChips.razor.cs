@@ -343,6 +343,6 @@ internal static class KeyValueExtensions
 	const StringComparison StringCompareRules = StringComparison.OrdinalIgnoreCase;
 
 	public static bool IsEnterKey(this string? key) => key?.Equals("Enter", StringCompareRules) ?? false;
-	public static bool IsBackspace(this string? key) => key?.Equals("Enter", StringCompareRules) ?? false;
+	public static bool IsBackspace(this string? key) => key?.Equals("Backspace", StringCompareRules) ?? false;
 	public static bool IsChar(this string? key, char c) => key?.FirstOrDefault().Equals(c) ?? false;
 }
