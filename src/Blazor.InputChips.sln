@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.36105.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.InputChips", "Blazor.InputChips\Blazor.InputChips.csproj", "{06E9A4C3-1CF9-946B-2F2F-51C3BD173883}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Wasm", "Sample.Wasm\Sample.Wasm.csproj", "{60768751-2B2B-446C-9E31-EC80CA6B8A54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{06E9A4C3-1CF9-946B-2F2F-51C3BD173883}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06E9A4C3-1CF9-946B-2F2F-51C3BD173883}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06E9A4C3-1CF9-946B-2F2F-51C3BD173883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60768751-2B2B-446C-9E31-EC80CA6B8A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60768751-2B2B-446C-9E31-EC80CA6B8A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60768751-2B2B-446C-9E31-EC80CA6B8A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60768751-2B2B-446C-9E31-EC80CA6B8A54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

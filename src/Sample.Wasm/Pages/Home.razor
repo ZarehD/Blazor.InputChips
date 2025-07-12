@@ -1,0 +1,53 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, Blazor Input Chips!</h1>
+
+<div class="samples">
+
+	<label>Basic binding sample.</label>
+	<InputChips @bind-Chips="Chips"
+				autofocus placeholder="add a tag" />
+
+	<label>Use BACKSPACE to delete tags.</label>
+	<InputChips placeholder="add a tag"
+				EnableBackspaceRemove="true" />
+
+	<label>Use SPACE to submit tags.</label>
+	<InputChips placeholder="add a tag"
+				EnableBackspaceRemove="true"
+				SubmitChipOnChar="' '" />
+
+	<label>Limit tag min (3) & max (12) size.</label>
+	<InputChips placeholder="add a tag"
+				EnableBackspaceRemove="true"
+				SubmitChipOnChar="' '"
+				UseUnorderedListForErrors="false"
+				MinChipLen="3" MaxChipLen="12" />
+
+	<label>Limit min/max, but use UL for errors.</label>
+	<InputChips placeholder="add a tag"
+				EnableBackspaceRemove="true"
+				SubmitChipOnChar="' '"
+				MinChipLen="3" MaxChipLen="12"
+				UseUnorderedListForErrors="false" />
+
+	<label>Readonly Chips collection.</label>
+	<InputChips @bind-Chips="ReadonlyChips"
+				ReadOnly="true" />
+
+	<label>Readonly Chips, Allow Delete.</label>
+	<InputChips @bind-Chips="DeleteReadonlyChips"
+				ReadOnly="true"
+				AllowDeleteWhenReadOnly="true" />
+
+</div>
+
+@code {
+	private List<string> Chips { get; set; } = [];
+
+	private List<string> ReadonlyChips { get; set; } = ["Jane", "June", "Janet"];
+
+	private List<string> DeleteReadonlyChips { get; set; } = ["Jane", "June", "Janet", "Jack"];
+}
