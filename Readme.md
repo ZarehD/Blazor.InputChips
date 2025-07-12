@@ -5,8 +5,7 @@
 
 Input control for editing a collection of chips (tag values).
 
-<img src="https://github.com/ZarehD/Blazor.InputChips/blob/main/Screenshot-01.png" alt="screenshot-01" width="550px" />
-<img src="https://github.com/ZarehD/Blazor.InputChips/blob/main/Screenshot-02.png" alt="screenshot-02" width="550px" />
+<img src="https://github.com/ZarehD/Blazor.InputChips/blob/main/Screenshot-03.png" alt="screenshot-01" width="900px" />
 
 
 ## Installation
