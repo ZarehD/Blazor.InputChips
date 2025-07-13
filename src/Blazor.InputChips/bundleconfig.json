@@ -1,0 +1,10 @@
+[
+	{
+		"outputFileName": "wwwroot/Blazor.InputChips.js",
+		"inputFiles": [
+			"InputChips.js"
+		],
+		"minify": { "enabled": true },
+		"sourceMap": false
+	}
+]

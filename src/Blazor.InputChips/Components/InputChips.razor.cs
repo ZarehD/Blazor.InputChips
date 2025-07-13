@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
 
 namespace Blazor.InputChips.Components;
 
-public partial class InputChips : ComponentBase
+public partial class InputChips(IJSRuntime jsRuntime) : ComponentBase
 {
 	static readonly IEqualityComparer<string> StringEqualityComparer = StringComparer.OrdinalIgnoreCase;
 
@@ -226,6 +227,9 @@ public partial class InputChips : ComponentBase
 	private string previousValue = string.Empty;
 	private List<string> validationErrors = [];
 
+	private IJSObjectReference _module = null!;
+	private SelectionIndex currentSelection;
+
 
 	protected override void OnInitialized()
 	{
@@ -260,6 +264,19 @@ public partial class InputChips : ComponentBase
 		}
 	}
 
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		await base.OnAfterRenderAsync(firstRender);
+		if (firstRender)
+		{
+			_module = await jsRuntime.InvokeAsync<IJSObjectReference>(
+				"import", "./_content/Blazor.InputChips/Blazor.InputChips.min.js");
+
+			await _module.InvokeVoidAsync(
+				"applyConfig", inputId,
+				DotNetObjectReference.Create(this));
+		}
+	}
 
 	private void OnInput(ChangeEventArgs args)
 	{
@@ -309,7 +326,22 @@ public partial class InputChips : ComponentBase
 	private void OnKeyPress(KeyboardEventArgs args)
 	{
 		if (IsSubmitChipKeypress(args.Key)) return;
-		currentValue += args.Key;
+		var temp = currentValue.AsSpan();
+		var pfx = temp[..currentSelection.Start];
+		var sfx = temp[currentSelection.End..];
+		currentValue = string.Concat(pfx, args.Key, sfx);
+		var pos = currentSelection.Start + 1;
+		Task.Run(async () =>
+			await _module.InvokeVoidAsync(
+				"setCursorPos", inputId,
+				pos, pos));
+	}
+
+	[JSInvokable]
+	public async Task SetSelectionIndexAsync(SelectionIndex selIdx)
+	{
+		currentSelection = selIdx;
+		await Task.CompletedTask;
 	}
 
 
@@ -336,6 +368,15 @@ public partial class InputChips : ComponentBase
 
 		return (validationErrors.Count == 0);
 	}
+}
+
+public struct SelectionIndex
+{
+	public int Start { get; set; }
+	public int End { get; set; }
+	public readonly bool HasSelection =>
+		(this.Start != this.End) &&
+		(this.End > 0);
 }
 
 internal static class KeyValueExtensions
