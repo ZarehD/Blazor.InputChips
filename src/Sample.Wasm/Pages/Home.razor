@@ -1,46 +1,56 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, Blazor Input Chips!</h1>
+<h1>Hello, Blazor InputChips!</h1>
 
 <div class="samples">
 
-	<label>Basic binding sample.</label>
-	<InputChips @bind-Chips="Chips"
-				autofocus placeholder="add a tag" />
+	<label>Default</label>
+	<InputChips autofocus placeholder="add a tag" />
 
-	<label>Use BACKSPACE to delete tags.</label>
+	<label>Bind to property</label>
+	<InputChips @bind-Chips="Chips"
+				placeholder="add a tag" />
+
+	<label>Use SPACE to submit tags</label>
+	<InputChips placeholder="add a tag"
+				SubmitChipOnChar="' '" />
+
+	<label>Use BACKSPACE to delete tags</label>
 	<InputChips placeholder="add a tag"
 				EnableBackspaceRemove="true" />
 
-	<label>Use SPACE to submit tags.</label>
+	<label>Allow duplicates</label>
 	<InputChips placeholder="add a tag"
-				EnableBackspaceRemove="true"
-				SubmitChipOnChar="' '" />
+				AllowDuplicates="true" />
 
-	<label>Limit tag min (3) & max (12) size.</label>
+	<label>Limit tag min (3) & max (12) length</label>
 	<InputChips placeholder="add a tag"
-				EnableBackspaceRemove="true"
-				SubmitChipOnChar="' '"
-				UseUnorderedListForErrors="false"
 				MinChipLen="3" MaxChipLen="12" />
 
-	<label>Limit min/max, but use UL for errors.</label>
+	<label>Limit min/max length and use &lt;ul&gt; for errors</label>
 	<InputChips placeholder="add a tag"
-				EnableBackspaceRemove="true"
-				SubmitChipOnChar="' '"
 				MinChipLen="3" MaxChipLen="12"
-				UseUnorderedListForErrors="false" />
+				UseUnorderedListForErrors="true" />
 
-	<label>Readonly Chips collection.</label>
+	<label>Readonly mode</label>
 	<InputChips @bind-Chips="ReadonlyChips"
 				ReadOnly="true" />
 
-	<label>Readonly Chips, Allow Delete.</label>
+	<label>Readonly mode, allow delete</label>
 	<InputChips @bind-Chips="DeleteReadonlyChips"
 				ReadOnly="true"
 				AllowDeleteWhenReadOnly="true" />
+
+	<EditForm method="post"
+			  Model="this.Input"
+			  OnValidSubmit="OnValidSubmit">
+		<label>ENTER key will not cause form to submit!</label>
+		<InputChips @bind-Chips="this.Input.Chips" autocomplete="off" autofill="off" />
+		<button type="submit">Save</button>
+	</EditForm>
 
 </div>
 
@@ -50,4 +60,17 @@
 	private List<string> ReadonlyChips { get; set; } = ["Jane", "June", "Janet"];
 
 	private List<string> DeleteReadonlyChips { get; set; } = ["Jane", "June", "Janet", "Jack"];
+
+
+	private void OnValidSubmit()
+	{
+		NavigationManager.NavigateTo("/submitted-form");
+	}
+
+	private InputModel Input = new();
+
+	private class InputModel
+	{
+		public List<string> Chips { get; set; } = [];
+	}
 }
