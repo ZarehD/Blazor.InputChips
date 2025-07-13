@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using System.Collections.ObjectModel
 @inject NavigationManager NavigationManager
 
 <PageTitle>Home</PageTitle>
@@ -7,12 +8,18 @@
 
 <div class="samples">
 
-	<label>Default</label>
+	<label>Default (no backing field)</label>
 	<InputChips autofocus placeholder="add a tag" />
 
 	<label>Bind to property</label>
 	<InputChips @bind-Chips="Chips"
 				placeholder="add a tag" />
+
+	<label>Bind to observable collection</label>
+	<InputChips @bind-Chips="ObservableChips"
+				placeholder="add a tag"
+				EnableBackspaceRemove="true" />
+	<p>@message</p>
 
 	<label>Use SPACE to submit tags</label>
 	<InputChips placeholder="add a tag"
@@ -35,6 +42,11 @@
 				MinChipLen="3" MaxChipLen="12"
 				UseUnorderedListForErrors="true" />
 
+	<label>Custom validation</label>
+	<InputChips @bind-Chips="CustomValidateChips"
+				placeholder="will not accept any :-)"
+				OnCustomValidate="CustomValidateChipsCollection" />
+
 	<label>Readonly mode</label>
 	<InputChips @bind-Chips="ReadonlyChips"
 				ReadOnly="true" />
@@ -46,7 +58,7 @@
 
 	<EditForm method="post"
 			  Model="this.Input"
-			  OnValidSubmit="OnValidSubmit">
+			  OnValidSubmit="SubmitValidForm">
 		<label>ENTER key will not cause form to submit!</label>
 		<InputChips @bind-Chips="this.Input.Chips" autocomplete="off" autofill="off" />
 		<button type="submit">Save</button>
@@ -55,14 +67,41 @@
 </div>
 
 @code {
-	private List<string> Chips { get; set; } = [];
+	private ICollection<string> Chips { get; set; } = [];
 
-	private List<string> ReadonlyChips { get; set; } = ["Jane", "June", "Janet"];
+	private ICollection<string> ObservableChips { get; set; } = new ObservableCollection<string>();
 
-	private List<string> DeleteReadonlyChips { get; set; } = ["Jane", "June", "Janet", "Jack"];
+	private ICollection<string> CustomValidateChips { get; set; } = new List<string>();
+
+	private ICollection<string> ReadonlyChips { get; set; } = ["Jane", "June", "Janet"];
+
+	private ICollection<string> DeleteReadonlyChips { get; set; } = ["Jane", "June", "Janet", "Jack"];
+
+	private string? message;
 
 
-	private void OnValidSubmit()
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+
+		((ObservableCollection<string>) this.ObservableChips).CollectionChanged +=
+			(s, e) =>
+			{
+				var count = this.ObservableChips.Count;
+				message = $"Observable collection has {count} item(s); updated at {DateTime.Now.TimeOfDay}";
+			};
+	}
+
+
+	private void CustomValidateChipsCollection(ChipValidationArgs args)
+	{
+		if (args.Chips.Count >= 0)
+		{
+			args.ValidationErrors.Add("I don't like it!");
+		}
+	}
+
+	private void SubmitValidForm()
 	{
 		NavigationManager.NavigateTo("/submitted-form");
 	}
@@ -71,6 +110,6 @@
 
 	private class InputModel
 	{
-		public List<string> Chips { get; set; } = [];
+		public ICollection<string> Chips { get; set; } = [];
 	}
 }
