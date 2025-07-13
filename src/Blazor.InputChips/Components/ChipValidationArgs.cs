@@ -1,7 +1,7 @@
 ﻿namespace Blazor.InputChips.Components;
 
 public sealed class ChipValidationArgs(
-	IReadOnlyCollection<string> allChips,
+	ICollection<string> allChips,
 	string currentChip,
 	ref List<string> validationErrors)
 {
@@ -13,7 +13,7 @@ public sealed class ChipValidationArgs(
 	/// <summary>
 	///		List of current chips.
 	/// </summary>
-	public IReadOnlyCollection<string> Chips { get; } = allChips;
+	public IReadOnlyCollection<string> Chips { get; } = [.. allChips];
 
 	/// <summary>
 	///		Collection of validation errors.

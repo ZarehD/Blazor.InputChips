@@ -12,13 +12,13 @@ public partial class InputChips(IJSRuntime jsRuntime) : ComponentBase
 	///		Current collection of chips/tags.
 	/// </summary>
 	[Parameter]
-	public List<string> Chips { get; set; } = [];
+	public ICollection<string> Chips { get; set; } = [];
 
 	/// <summary>
 	///		Callback invoked when <see cref="Chips"/> collection has changed.
 	/// </summary>
 	[Parameter]
-	public EventCallback<List<string>> ChipsChanged { get; set; }
+	public EventCallback<ICollection<string>> ChipsChanged { get; set; }
 
 
 	/// <summary>
