@@ -3,7 +3,7 @@
 		globalThis.icp = new Promise(function (resolve, reject) {
 			const tag = document.createElement("script");
 			tag.src = "_content/Blazor.InputChips/Blazor.InputChips.min.js";
-			tag.type = "text/javascript";
+			tag.type = "module";//"text/javascript";
 			tag.onload = function () {
 				globalThis.InputChipsLoaded = true;
 				resolve();
