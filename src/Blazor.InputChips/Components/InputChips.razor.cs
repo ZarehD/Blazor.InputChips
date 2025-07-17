@@ -6,6 +6,7 @@ namespace Blazor.InputChips.Components;
 public partial class InputChips(IJSRuntime jsRuntime) : ComponentBase
 {
 	static readonly IEqualityComparer<string> StringEqualityComparer = StringComparer.OrdinalIgnoreCase;
+	static readonly IComparer<string> StdStringComparer = StringComparer.OrdinalIgnoreCase;
 
 
 	/// <summary>
@@ -113,6 +114,12 @@ public partial class InputChips(IJSRuntime jsRuntime) : ComponentBase
 	/// </remarks>
 	[Parameter]
 	public bool UseUnorderedListForErrors { get; set; }
+
+	/// <summary>
+	///		Specifies whether to sort the <see cref="Chips"/> collection.
+	/// </summary>
+	[Parameter]
+	public bool SortChips { get; set; }
 
 	/// <summary>
 	///		Specifies the font icon CSS class to use for the delete icon of a chip.
@@ -264,6 +271,12 @@ public partial class InputChips(IJSRuntime jsRuntime) : ComponentBase
 		}
 	}
 
+	protected override void OnParametersSet()
+	{
+		base.OnParametersSet();
+		SortChipsCollection();
+	}
+
 	protected override async Task OnAfterRenderAsync(bool firstRender)
 	{
 		await base.OnAfterRenderAsync(firstRender);
@@ -320,6 +333,7 @@ public partial class InputChips(IJSRuntime jsRuntime) : ComponentBase
 
 		this.Chips.Add(currentValue);
 		currentValue = string.Empty;
+		SortChipsCollection();
 		this.ChipsChanged.InvokeAsync(this.Chips);
 	}
 
@@ -367,6 +381,14 @@ public partial class InputChips(IJSRuntime jsRuntime) : ComponentBase
 		if (this.OnCustomValidate.HasDelegate) this.OnCustomValidate.InvokeAsync(new ChipValidationArgs(this.Chips, currentValue, ref validationErrors));
 
 		return (validationErrors.Count == 0);
+	}
+
+	private void SortChipsCollection()
+	{
+		if (!this.SortChips) return;
+		var sorted = this.Chips.Order(StdStringComparer).ToArray();
+		this.Chips.Clear();
+		foreach (var s in sorted) this.Chips.Add(s);
 	}
 }
 

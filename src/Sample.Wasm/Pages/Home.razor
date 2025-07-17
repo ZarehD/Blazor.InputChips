@@ -9,16 +9,19 @@
 <div class="samples">
 
 	<label>Default (no backing field)</label>
-	<InputChips autofocus placeholder="add a tag" />
+	<InputChips autofocus placeholder="add a tag"
+				SortChips="true" />
 
 	<label>Bind to property</label>
 	<InputChips @bind-Chips="Chips"
-				placeholder="add a tag" />
+				placeholder="add a tag"
+				SortChips="true" />
 
 	<label>Bind to observable collection</label>
 	<InputChips @bind-Chips="ObservableChips"
 				placeholder="add a tag"
-				EnableBackspaceRemove="true" />
+				EnableBackspaceRemove="true"
+				SortChips="true" />
 	<p>@message</p>
 
 	<label>Use SPACE to submit tags</label>
