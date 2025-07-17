@@ -64,6 +64,7 @@ DisableSubmitChipOnEnter | bool | false | Disables the [ENTER] key from submitti
 EnableBackspaceRemove | bool | false | Specifies whether the [BACKSPACE] key will remove the last chip in the `Chips` collection.<br/><br/>:bulb: <small>Applies only when the input field is empty.</small>
 HideValidationErrors | bool | false | Specifies whether to hide (not display) validation errors.
 ReadOnly | bool | false | Specifies whether the `Chips` collection can be edited.
+SortChips | bool | false | Specifies whether to sort `Chips` collection.
 
 #### Miscellaneous
 Property | Type | Default | Description
