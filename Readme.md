@@ -186,6 +186,12 @@ li.bic-error-item            # validation error li item
 ```
 
 
+## Methods
+Name | Return | Description
+---|---|---
+FocusInputAsync | ValueTask | Allows user of component to set the input focus to this component's input field.
+
+
 <br/>
 
 ## License

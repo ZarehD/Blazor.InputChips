@@ -222,6 +222,8 @@ public partial class InputChips(IJSRuntime jsRuntime) : ComponentBase
 	public Dictionary<string, object>? AllOtherAttributes { get; set; } = [];
 
 
+	private ElementReference InputElement { get; set; }
+
 	private string CssInputOutline =>
 		this.ApplyInputOutlineCss ? "bic-input-outline" : string.Empty;
 
@@ -358,6 +360,11 @@ public partial class InputChips(IJSRuntime jsRuntime) : ComponentBase
 		await Task.CompletedTask;
 	}
 
+	public async ValueTask FocusInputAsync()
+	{
+		if (this.ReadOnly) return;
+		await this.InputElement.FocusAsync();
+	}
 
 	private void RemoveChip(string chip)
 	{

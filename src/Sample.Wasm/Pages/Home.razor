@@ -14,8 +14,14 @@
 
 	<label>Bind to property</label>
 	<InputChips @bind-Chips="Chips"
+				@ref="InputChipItem"
 				placeholder="add a tag"
 				SortChips="true" />
+	<button @onclick="SetFocusAsync"
+			class="btn btn-primary mt-1">
+		Focus Me!
+	</button>
+	<br />
 
 	<label>Bind to observable collection</label>
 	<InputChips @bind-Chips="ObservableChips"
@@ -82,6 +88,8 @@
 
 	private string? message;
 
+	private InputChips? InputChipItem { get; set; }
+
 
 	protected override void OnInitialized()
 	{
@@ -108,6 +116,13 @@
 	{
 		NavigationManager.NavigateTo("/submitted-form");
 	}
+
+	private async Task SetFocusAsync()
+	{
+		if (InputChipItem is null) return;
+		await InputChipItem.FocusInputAsync();
+	}
+
 
 	private InputModel Input = new();
 
